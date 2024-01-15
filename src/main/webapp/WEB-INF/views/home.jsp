@@ -5,7 +5,7 @@ pageEncoding="UTF-8"%>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>도서관리시스템 웹훅 테스트 최종</title>
+	<title>도서관리시스템</title>
 	<link href="<c:url value='/resources/css/home.css'/>" rel="stylesheet" type="text/css">
 </head>
 <body>
