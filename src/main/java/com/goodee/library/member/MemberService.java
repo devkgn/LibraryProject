@@ -33,7 +33,29 @@ public class MemberService {
 	
 	public List<MemberVo> listupMember(){
 		LOGGER.info("[MemberService] listupMember();");
-		return dao.selectMemeberList();
+		return dao.selectMemberList();
+	}
+	
+	public int modifyMember(MemberVo vo) {
+		LOGGER.info("[MemberService] modifyMember();");
+		return dao.updateMember(vo);
+	}
+	
+	// 회원 단일 정보 조회
+	public MemberVo getLoginedMemberVo(int m_no) {
+		return dao.selectMemberOne(m_no);
+	}
+	
+	public int findPasswordConfirm(MemberVo vo) {
+		// 1. 입력한 정보와 일치하는 사용자가 있는지 확인
+		MemberVo selectedMember = dao.selectMemberOne(vo);
+		int result = 0;
+		if(selectedMember != null) {
+		// 2. 새로운 비밀번호 생성
+		// 3. 생성된 비밀번호 업데이트
+		// 4. 메일 보내기
+		}
+		return result;
 	}
 	
 	
