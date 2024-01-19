@@ -1,7 +1,9 @@
 package com.goodee.library.member;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -159,7 +161,7 @@ public class MemberDao {
 	}
 	
 	// 회원 단일 정보 데이터베이스에서 조회(m_no 기준)
-	public MemberVo selectMemberOne(int m_no) {
+	public MemberVo selectMemberOne(int m_no){
 		return sqlSession.selectOne(namespace+"selectMemberOne",m_no);
 	}
 	
@@ -168,6 +170,20 @@ public class MemberDao {
 		MemberVo memberVo 
 		= sqlSession.selectOne(namespace+"selectMemberForPassword",vo);
 		return memberVo;
+	}
+	
+	public int updatePassword(String m_id, String newPassword) {
+		LOGGER.info("[MemberDao] updatePassword();");
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("m_id", m_id);
+		map.put("m_pw", passwordEncoder.encode(newPassword));
+		int result = -1;
+		try {
+			result = sqlSession.update(namespace+"updatePassword",map);
+		}catch(Exception e) {
+			LOGGER.error(e.toString());
+		}
+		return result;
 	}
 	
 
