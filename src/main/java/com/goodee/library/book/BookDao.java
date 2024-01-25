@@ -49,7 +49,11 @@ public class BookDao {
 		return result;
 	}
 	
-	
+	public int deleteBook(int b_no) {
+		LOGGER.info("[BookController] deleteBook();");
+		int result = sqlSession.delete(namespace+"deleteBook",b_no);
+		return result;
+	}
 	
 	
 	

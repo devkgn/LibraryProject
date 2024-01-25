@@ -37,6 +37,9 @@
 				<li>
 					<a href="<c:url value="/book"/>">도서목록</a>
 				</li>
+				<li>
+					<a onclick="deleteBook('1');">도서 삭제</a>
+				</li>
 			</ul>
 		</div>
 		<div class="search">
@@ -48,3 +51,4 @@
 		<%} %>
 	</div>
 </nav>    
+

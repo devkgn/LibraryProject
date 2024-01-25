@@ -44,4 +44,9 @@ public class BookService {
 		return result;
 	}
 	
+	public int deleteBook(int b_no) {
+		LOGGER.info("[BookService] deleteBook();");
+		return bookDao.deleteBook(b_no);
+	}
+	
 }
