@@ -15,12 +15,12 @@ public class UploadFileService {
 		String fileOriName = file.getOriginalFilename();
 		String fileExtension = fileOriName.substring(
 				fileOriName.lastIndexOf("."),fileOriName.length());
-		String uploadDir = "/var/lib/tomcat9/webapps/upload";
+		String uploadDir = "/var/lib/tomcat9/webapps/upload/";
 		
 		UUID uuid = UUID.randomUUID();
 		String uniqueName = uuid.toString().replaceAll("-", "");
 				
-		File saveFile = new File(uploadDir+"\\"+uniqueName+fileExtension);
+		File saveFile = new File(uploadDir+uniqueName+fileExtension);
 		
 		if(!saveFile.exists()) saveFile.mkdirs();
 		
